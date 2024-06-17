@@ -14,7 +14,6 @@ public class UnionFind : DisjointSets {
     private int[] parents;
 
     UnionFind(int Size) {
-        // Constructor goes here
         parents = new int[Size];
         for (int i = 0; i < Size; i++) {
             parents[i] = -1;
