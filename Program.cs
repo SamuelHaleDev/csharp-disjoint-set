@@ -45,8 +45,11 @@ public class UnionFind : DisjointSets {
     }
 
     public int Find(int v) {
-        // implement first
-        return 0;
+        if (parents[v] < 0) {
+            return v;
+        }
+
+        return Find(parents[v]);
     }
 }
 
