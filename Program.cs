@@ -22,8 +22,7 @@ public class UnionFind : DisjointSets {
     }
 
     public bool Connected(int vertex1, int vertex2) {
-
-        return true;
+        return (Find(vertex1) == Find(vertex2));
     }
 
     public int SizeOf(int vertex) {
@@ -43,7 +42,7 @@ public class UnionFind : DisjointSets {
             return vertex;
         }
 
-        return Find(parents[vertex]);
+        return parents[vertex] = Find(parents[vertex]);
     }
 }
 
