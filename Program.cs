@@ -4,7 +4,7 @@ namespace csharp_disjoint_set;
 
 public interface DisjointSets {
     // Connects items p and q
-    public void Connect(int p, int q);
+    public void Union(int p, int q);
 
     // Checks to see if two items are connected
     public bool Connected(int p, int q);
@@ -21,10 +21,6 @@ public class UnionFind : DisjointSets {
         }
     }
 
-    public void Connect(int vertex1, int vertex2) {
-
-    }
-
     public bool Connected(int vertex1, int vertex2) {
 
         return true;
@@ -36,20 +32,19 @@ public class UnionFind : DisjointSets {
     }
 
     public int Parent(int vertex) {
-
-        return 0;
+        return parents[vertex];
     }
 
     public void Union(int vertex1, int vertex2) {
 
     }
 
-    public int Find(int v) {
-        if (parents[v] < 0) {
-            return v;
+    public int Find(int vertex) {
+        if (parents[vertex] < 0) {
+            return vertex;
         }
 
-        return Find(parents[v]);
+        return Find(parents[vertex]);
     }
 }
 
