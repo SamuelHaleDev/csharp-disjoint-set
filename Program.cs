@@ -27,8 +27,7 @@ public class UnionFind : DisjointSets {
     }
 
     public int SizeOf(int vertex) {
-
-        return 0;
+        return Math.Abs(Find(vertex));
     }
 
     public int Parent(int vertex) {
