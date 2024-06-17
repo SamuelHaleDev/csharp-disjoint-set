@@ -7,10 +7,44 @@ public interface DisjointSets {
     public void Connect(int p, int q);
 
     // Checks to see if two items are connected
-    public void IsConnected(int p, int q);
+    public bool Connected(int p, int q);
 }
 
+public class UnionFind : DisjointSets {
+    private int[] parents;
 
+    UnionFind(int Size) {
+        // Constructor goes here
+    }
+
+    public void Connect(int vertex1, int vertex2) {
+
+    }
+
+    public bool Connected(int vertex1, int vertex2) {
+
+        return true;
+    }
+
+    public int SizeOf(int vertex) {
+
+        return 0;
+    }
+
+    public int Parent(int vertex) {
+
+        return 0;
+    }
+
+    public void Union(int vertex1, int vertex2) {
+
+    }
+
+    public int Find(int v) {
+        // implement first
+        return 0;
+    }
+}
 
 class Program
 {
