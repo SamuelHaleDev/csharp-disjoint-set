@@ -14,6 +14,10 @@ public class UnionFind : DisjointSets {
     private int[] parents;
 
     UnionFind(int Size) {
+        if (Size < 0 || Size == 0) {
+            throw new Exception("Cannot initialize a Disjoint Set with 0 or less size");
+        }
+
         parents = new int[Size];
         for (int i = 0; i < Size; i++) {
             parents[i] = -1;
@@ -29,10 +33,18 @@ public class UnionFind : DisjointSets {
     }
 
     public int Parent(int vertex) {
+        if (vertex > parents.Length || vertex < 0) {
+            throw new Exception("Cannot access parent of an out of range vertex!");
+        }
+
         return parents[vertex];
     }
 
     public void Union(int vertex1, int vertex2) {
+        if (vertex1 > parents.Length || vertex2 > parents.Length || vertex1 < 0 || vertex2 < 0) {
+            throw new Exception("Cannot union 1 or 2 out of range vertices!");
+        }
+
         int vertex1Size = SizeOf(vertex1);
         int vertex2Size = SizeOf(vertex2);
 
@@ -50,6 +62,10 @@ public class UnionFind : DisjointSets {
     }
 
     public int Find(int vertex) {
+        if (vertex > parents.Length || vertex < 0) {
+            throw new Exception("Cannot find an out of range vertex!");
+        }
+
         if (parents[vertex] < 0) {
             return vertex;
         }
