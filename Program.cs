@@ -34,7 +34,20 @@ public class UnionFind : DisjointSets {
     }
 
     public void Union(int vertex1, int vertex2) {
+        int vertex1Size = SizeOf(vertex1);
+        int vertex2Size = SizeOf(vertex2);
 
+        int vertex1Root = Find(vertex1);
+        int vertex2Root = Find(vertex2);
+
+        if (vertex1Size <= vertex2Size) {
+            parents[vertex2Root] = vertex1Root;
+            parents[vertex1] += vertex2Size;
+            return;
+        }
+
+        parents[vertex1Root] = vertex2Root;
+        parents[vertex2] += vertex1Size;
     }
 
     public int Find(int vertex) {
