@@ -15,6 +15,10 @@ public class UnionFind : DisjointSets {
 
     UnionFind(int Size) {
         // Constructor goes here
+        parents = new int[Size];
+        for (int i = 0; i < Size; i++) {
+            parents[i] = -1;
+        }
     }
 
     public void Connect(int vertex1, int vertex2) {
