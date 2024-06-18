@@ -13,7 +13,7 @@ public interface DisjointSets {
 public class UnionFind : DisjointSets {
     private int[] parents;
 
-    UnionFind(int Size) {
+    public UnionFind(int Size) {
         if (Size < 0 || Size == 0) {
             throw new Exception("Cannot initialize a Disjoint Set with 0 or less size");
         }
@@ -79,5 +79,17 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+    }
+
+    public UnionFind InitialState() {
+        UnionFind uf = new UnionFind(4);
+        if (uf.Connected(0,1) != false) throw new Exception("Error Constructing");
+        if (uf.Connected(0,2) != false) throw new Exception("Error Constructing");
+        if (uf.Connected(0,3) != false) throw new Exception("Error Constructing");
+        if (uf.Connected(1,2) != false) throw new Exception("Error Constructing");
+        if (uf.Connected(1,3) != false) throw new Exception("Error Constructing");
+        if (uf.Connected(2,3) != false) throw new Exception("Error Constructing");
+
+        return uf;
     }
 }
